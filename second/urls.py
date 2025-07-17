@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name="home"),  # Include URLs from the home app
     path('addproduct/', addProduct, name="add_product"),  # Add product view
+    path('edit/<int:id>', editProduct, name="edit_product"),  # Edit product view
 ]

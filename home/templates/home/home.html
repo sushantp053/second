@@ -11,7 +11,7 @@
     {{ prods }} products found.
     <ul>
         {% for product in prods %}
-            <li>{{ product.name }} - {{ product.price }}</li>
+            <li>{{ product.name }} - {{ product.price }} <a href="/edit/{{ product.id }}">Edit</a></li>
         {% endfor %}
     </ul>
     <p>Thank you for visiting!</p>
