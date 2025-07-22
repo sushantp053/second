@@ -43,5 +43,10 @@ def editProduct(request, id):
         product.save()
         return redirect('home')
     
+def deleteProduct(request, id):
+    product = Product.objects.get(id=id)
+    product.delete()
+    return redirect('home')
+    
     
 
