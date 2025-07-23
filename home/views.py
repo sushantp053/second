@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Product
+from django.contrib.auth.models import User
 
 # Create your views here.
 def home(request):
@@ -48,5 +49,20 @@ def deleteProduct(request, id):
     product.delete()
     return redirect('home')
     
+def signUpUser(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        email = request.POST.get('email')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        # Here you would typically create a user object and save it
+        print(username, password)
+        if User.objects.filter(username=username).exists():
+            return render(request, 'auth/signup.html', {'error': 'Username already exists'})
+        user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
+        user.save()
+        # Redirect or render a template after signup
+        return redirect('home')
     
-
+    return render(request, 'auth/signup.html')
