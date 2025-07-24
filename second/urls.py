@@ -25,4 +25,6 @@ urlpatterns = [
     path('edit/<int:id>', editProduct, name="edit_product"),  # Edit product view
     path('delete/<str:id>', deleteProduct, name="delete_product"),  # Delete product view
     path('signup/', signUpUser, name="signup_user"),  # User signup view
+    path('login/', signInUser, name="login_user"),  # User login view
+    path('logout/', signOutUser, name="logout_user"),  # User logout view
 ]
