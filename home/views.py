@@ -96,3 +96,6 @@ def signInUser(request):
 def signOutUser(request):
     logout(request)
     return redirect('login_user')
+
+def about(request): 
+    return render(request, 'home/about.html')

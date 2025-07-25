@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Add</title>
-</head>
-<body>
+{% extends "base.html" %}
+    
+{% block title %}Add Product{% endblock %}
+{% block block_content %}
     <h1>Add a New Product</h1>
     <form method="post">
         {% csrf_token %}
@@ -21,5 +17,4 @@
         <button type="submit">Add Product</button>
     </form>
     <p><a href="{% url 'home' %}">Back to Home</a></p>
-</body>
-</html>
+{% endblock %}

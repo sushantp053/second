@@ -27,4 +27,5 @@ urlpatterns = [
     path('signup/', signUpUser, name="signup_user"),  # User signup view
     path('login/', signInUser, name="login_user"),  # User login view
     path('logout/', signOutUser, name="logout_user"),  # User logout view
+    path('about/', about, name="about"),  # About page view
 ]
