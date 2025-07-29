@@ -19,9 +19,10 @@ def addProduct(request):
         n = request.POST.get('name')
         p = request.POST.get('price')
         desc = request.POST.get('description')
+        image = request.FILES.get('image')  # Get the uploaded image file
         # image = request.FILES.get('image')
         print(n, p, desc)
-        product = Product(name=n, price=p, description=desc)
+        product = Product(name=n, price=p, description=desc, image=image)
         product.save()
     
     return render(request, 'home/addproduct.html')

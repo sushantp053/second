@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +30,4 @@ urlpatterns = [
     path('login/', signInUser, name="login_user"),  # User login view
     path('logout/', signOutUser, name="logout_user"),  # User logout view
     path('about/', about, name="about"),  # About page view
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # Serve media files in development
